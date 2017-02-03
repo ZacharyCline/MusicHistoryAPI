@@ -37,7 +37,7 @@ class ArtistsSerializers(serializers.HyperlinkedModelSerializer):
     """
 
     class Meta:
-        model = Songs
+        model = Artists
         fields = '__all__'
 
 class GenresSerializers(serializers.HyperlinkedModelSerializer):
