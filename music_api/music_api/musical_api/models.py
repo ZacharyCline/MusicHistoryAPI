@@ -32,7 +32,7 @@ class Albums(models.Model):
 	"""
 	AlbumTitle = models.CharField(max_length=100, blank=True, default='')
 	ReleaseDate = models.DateTimeField(null=True, blank=True)
-	ALbumDescription = models.TextField()
+	AlbumDescription = models.TextField()
 	NumberofSales = models.IntegerField()
 	ArtistId = models.ForeignKey(Artists, null=True)
 
@@ -62,7 +62,7 @@ class Songs(models.Model):
 
 
 
-class Customer(models.Model):
+class Customers(models.Model):
 	FirstName = models.CharField(max_length=100, blank=True, default='')
 	LastName = models.CharField(max_length=100, blank=True, default='')
 	Email = models.EmailField()
