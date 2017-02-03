@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from musical_api.models import *
 
-class AlbumsSerializer(serializers.HyperlinkedModelSerializer):
+class AlbumsSerializers(serializers.HyperlinkedModelSerializer):
 	"""
 	purpose: convert complex data into native python datatypes for JSON rendering
 	author: Zach
@@ -14,7 +14,7 @@ class AlbumsSerializer(serializers.HyperlinkedModelSerializer):
 		model = Albums
 		fields = '__all__'
 
-class SongsSerializer(serializers.HyperlinkedModelSerializer):
+class SongsSerializers(serializers.HyperlinkedModelSerializer):
 	"""
 	purpose: convert complex data into native python datatypes for JSON rendering
 	author: Zach
