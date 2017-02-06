@@ -12,7 +12,7 @@ class AlbumsSerializers(serializers.HyperlinkedModelSerializer):
 
 	class Meta:
 		model = Albums
-		fields = ('url', 'id','AlbumTitle', 'ReleaseDate', 'AlbumDescription', 'NumberofSales', 'ArtistId',)
+		fields = ('url', 'id','Album_Title', 'Release_Date', 'Album_Description', 'Number_of_Sales', 'Artist',)
 
 class SongsSerializers(serializers.HyperlinkedModelSerializer):
 	"""
@@ -25,7 +25,7 @@ class SongsSerializers(serializers.HyperlinkedModelSerializer):
 
 	class Meta:
 		model = Songs
-		fields = ('url','id', 'SongTitle', 'Duration', 'GenreId', 'AlbumId', 'ArtistId',)
+		fields = ('url','id', 'Song_Title', 'Duration', 'Genre', 'Album', 'Artist',)
 
 class ArtistsSerializers(serializers.HyperlinkedModelSerializer):
 	"""
@@ -38,7 +38,7 @@ class ArtistsSerializers(serializers.HyperlinkedModelSerializer):
 
 	class Meta:
 		model = Artists
-		fields = ('url','id', 'FirstName', 'LastName', 'BandName', 'Age', 'Bio',)
+		fields = ('url','id', 'First_Name', 'Last_Name', 'Band_Name', 'Age', 'Bio',)
 
 class GenresSerializers(serializers.HyperlinkedModelSerializer):
 	'''
@@ -50,7 +50,7 @@ class GenresSerializers(serializers.HyperlinkedModelSerializer):
 	'''
 	class Meta: 
 		model = Genres
-		fields = ('url','id','GenreName',)
+		fields = ('url','id','Genre_Name',)
 
 class CustomersSerializers(serializers.HyperlinkedModelSerializer):
 	'''
@@ -62,4 +62,4 @@ class CustomersSerializers(serializers.HyperlinkedModelSerializer):
 	'''
 	class Meta:
 		model = Customers
-		fields = ('url','id', 'FirstName', 'LastName', 'Email', 'Joined',)
+		fields = ('url','id', 'First_Name', 'Last_Name', 'Email', 'Joined',)

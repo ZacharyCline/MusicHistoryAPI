@@ -9,17 +9,17 @@ class Artists(models.Model):
 		subclasses: Meta (with ordering by FirstName)
 	"""
 	
-	FirstName = models.CharField(max_length=100, blank=True, default='')
-	LastName = models.CharField(max_length=100, blank=True, default='')
+	First_Name = models.CharField(max_length=100, blank=True, default='')
+	Last_Name = models.CharField(max_length=100, blank=True, default='')
 	Age = models.IntegerField()
-	BandName = models.CharField(max_length=100, null=True)
+	Band_Name = models.CharField(max_length=100, null=True)
 	Bio = models.TextField()
 
 	class Meta:
-		ordering = ('FirstName',)
+		ordering = ('First_Name',)
 
 	def __str__(self):
-		return '{} {} {} {} {}'.format(self.FirstName, self.LastName, self.Age, self.BandName, self.Bio)
+		return '{} {} {} {} {}'.format(self.First_Name, self.Last_Name, self.Age, self.Band_Name, self.Bio)
 
 class Genres(models.Model):
 	"""Genres model class
@@ -28,13 +28,13 @@ class Genres(models.Model):
 		methods: __str__ Returns a string
 		subclasses: Meta (with ordering by GenreName)
 	"""
-	GenreName = models.CharField(max_length=100, blank=True, default='')
+	Genre_Name = models.CharField(max_length=100, blank=True, default='')
 
 	class Meta:
-		ordering = ('GenreName',)
+		ordering = ('Genre_Name',)
 
 	def __str__(self):
-		return '{}'.format(self.GenreName,)
+		return '{}'.format(self.Genre_Name,)
 
 class Albums(models.Model):
 	"""Albums model class
@@ -43,18 +43,18 @@ class Albums(models.Model):
 		methods: __str__ Returns a string
 		subclasses: Meta (with ordering by AlbumTitle)
 	"""
-	AlbumTitle = models.CharField(max_length=100, blank=True, default='')
-	ReleaseDate = models.DateTimeField(null=True, blank=True)
-	AlbumDescription = models.TextField()
-	NumberofSales = models.IntegerField()
-	ArtistId = models.ForeignKey(Artists, null=True)
+	Album_Title = models.CharField(max_length=100, blank=True, default='')
+	Release_Date = models.DateTimeField(null=True, blank=True)
+	Album_Description = models.TextField()
+	Number_of_Sales = models.IntegerField()
+	Artist = models.ForeignKey(Artists, null=True)
 
 	class Meta:
-		ordering = ('AlbumTitle',)
+		ordering = ('Album_Title',)
 
 
 	def __str__(self):
-		return '{} {} {} {} {}'.format(self.AlbumTitle, self.ReleaseDate, self.ALbumDescription, self.NumberofSales, self.ArtistId,)
+		return '{} {} {} {} {}'.format(self.Album_Title, self.Release_Date, self.Album_Description, self.Number_of_Sales, self.Artist,)
 
 
 class Songs(models.Model):
@@ -64,17 +64,17 @@ class Songs(models.Model):
 		methods: __str__ Returns a string
 		subclasses: Meta (with ordering by SongTitle)
 	"""
-	SongTitle = models.CharField(max_length=100, blank=True, default='')
+	Song_Title = models.CharField(max_length=100, blank=True, default='')
 	Duration = models.DurationField()
-	GenreId = models.ForeignKey(Genres, null=True)
-	AlbumId = models.ForeignKey(Albums, null=True)
-	ArtistId = models.ForeignKey(Artists, null=True)
+	Genre = models.ForeignKey(Genres, null=True)
+	Album = models.ForeignKey(Albums, null=True)
+	Artist = models.ForeignKey(Artists, null=True)
 
 	class Meta:
-		ordering = ('SongTitle',)
+		ordering = ('Song_Title',)
 	   
 	def __str__(self):
-		return '{} {} {} {} {}'.format(self.SongTitle, self.Duration, self.GenreId, self.AlbumId, self.ArtistId,)
+		return '{} {} {} {} {}'.format(self.Song_Title, self.Duration, self.Genre, self.Album, self.Artist,)
 
 
 
@@ -88,8 +88,8 @@ class Customers(models.Model):
 		methods: __str__ Returns a string
 		subclasses: Meta (with ordering by email)
 	"""
-	FirstName = models.CharField(max_length=100, blank=True, default='')
-	LastName = models.CharField(max_length=100, blank=True, default='')
+	First_Name = models.CharField(max_length=100, blank=True, default='')
+	Last_Name = models.CharField(max_length=100, blank=True, default='')
 	Email = models.EmailField()
 	Joined = models.DateTimeField(auto_now_add=True)
 	
@@ -97,6 +97,6 @@ class Customers(models.Model):
 		ordering = ('Email',)
 
 	def __str__(self):
-		return '{} {} {} {}'.format(self.FirstName, self.LastName, self.Email, self.Joined,)
+		return '{} {} {} {}'.format(self.First_Name, self.Last_Name, self.Email, self.Joined,)
 
 
